@@ -25,7 +25,10 @@
 
   <footer class="site-footer">
     <p>&copy; {{ site.time | date: "%Y" }} {{ site.author }} &middot;
-       <a href="{{ '/feed.xml' | relative_url }}">RSS</a></p>
+       <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+       {%- if page.path and page.path != "" %} &middot;
+       <a href="https://github.com/{{ site.repository }}/edit/{{ site.edit_branch }}/{{ page.path }}">Edit this page</a>
+       {%- endif %}</p>
   </footer>
 </body>
 </html>

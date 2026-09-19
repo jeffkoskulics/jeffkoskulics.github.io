@@ -47,6 +47,18 @@ excerpt. `date` is set from the filename when you publish.
 | `assets/css/style.css` | All the styling. Light and dark, one file |
 | `scripts/` | `new-post.command`, `publish.command` |
 
+## Editing from a browser
+
+Every page has an **Edit this page** link in the footer. It opens that page's
+Markdown source in GitHub's web editor — make the change, commit, and Pages
+rebuilds in about a minute. This works from a phone.
+
+For anything larger, press `.` on the repo on GitHub and you get VS Code in the
+browser at [github.dev](https://github.dev/jeffkoskulics/jeffkoskulics.github.io).
+
+The published site itself cannot save edits — GitHub Pages serves static files
+and there is no server behind it. Every editing route goes through GitHub.
+
 ## Editing by hand
 
 Nothing depends on the scripts. A post is just a Markdown file in `_posts/`

@@ -8,6 +8,8 @@ url: "https://jeffkoskulics.github.io"
 baseurl: ""
 
 github_username: jeffkoskulics
+repository: jeffkoskulics/jeffkoskulics.github.io
+edit_branch: gh-pages
 
 permalink: /blog/:year/:month/:day/:title/
 timezone: America/Phoenix
