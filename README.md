@@ -1,37 +1,66 @@
-## Welcome to GitHub Pages
+# jeffkoskulics.github.io
 
-You can use the [editor on GitHub](https://github.com/jeffkoskulics/jeffkoskulics.github.io/edit/gh-pages/README.md) to maintain and preview the content for your website in Markdown files.
+Personal site and blog. Plain Jekyll, built by GitHub Pages from the
+`gh-pages` branch. Everything is Markdown.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Live at <https://jeffkoskulics.github.io>.
 
-### Markdown
+## Writing a post
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Double-click `scripts/new-post.command`. It asks for a title, creates
+`_drafts/<slug>.md` with the front matter already filled in, and opens it.
 
-```markdown
-Syntax highlighted code block
+Write. Drafts are not published, so you can leave one sitting for a week.
 
-# Header 1
-## Header 2
-### Header 3
+When it's ready, double-click `scripts/publish.command`. It lists your drafts,
+you pick a number, and it dates the file, moves it to `_posts/`, commits, and
+pushes with the same retry-with-backoff behaviour as the other scripts on this
+machine. The site rebuilds in about a minute.
 
-- Bulleted
-- List
+That's the whole loop: **new-post → write → publish**.
 
-1. Numbered
-2. List
+## Front matter
 
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+```yaml
+---
+title: "The title, in quotes"
+description: >-
+  One or two sentences. Shows on the writing index and in link previews.
+tags: [metrology, debugging]
+---
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+`layout: post` is applied automatically — you don't need to write it.
+Put `<!--more-->` after the opening paragraphs if you want to control the
+excerpt. `date` is set from the filename when you publish.
 
-### Jekyll Themes
+## Layout
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/jeffkoskulics/jeffkoskulics.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+| Path | What it is |
+|---|---|
+| `index.md` | Front page and the statement |
+| `about.md` | About page |
+| `blog.md` | The writing index, generated from `_posts/` |
+| `_posts/` | Published posts, named `YYYY-MM-DD-slug.md` |
+| `_drafts/` | Unpublished work. Not built, not visible |
+| `_layouts/` | Page templates |
+| `assets/css/style.css` | All the styling. Light and dark, one file |
+| `scripts/` | `new-post.command`, `publish.command` |
 
-### Support or Contact
+## Editing by hand
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+Nothing depends on the scripts. A post is just a Markdown file in `_posts/`
+with a dated filename, and `git push` publishes it.
+
+## Previewing locally (optional)
+
+Not required — GitHub Pages builds the real thing. If you want a local preview
+you need Ruby and Bundler, which this machine does not have set up:
+
+```bash
+bundle install
+bundle exec jekyll serve
+```
+
+Pushing a draft-quality post and fixing it in the next commit is usually
+cheaper than maintaining a local Ruby toolchain here.
