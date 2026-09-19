@@ -1,1 +1,40 @@
-theme: jekyll-theme-minimal
+title: Jeff Koskulics
+tagline: Physicist and engineer, Phoenix, Arizona
+description: >-
+  Notes on measurement, hardware, semiconductor metrology, and the machines
+  I keep running at home.
+author: Jeff Koskulics
+url: "https://jeffkoskulics.github.io"
+baseurl: ""
+
+github_username: jeffkoskulics
+
+permalink: /blog/:year/:month/:day/:title/
+timezone: America/Phoenix
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+feed:
+  path: /feed.xml
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+
+exclude:
+  - scripts/
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
